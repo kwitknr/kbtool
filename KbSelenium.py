@@ -6,18 +6,22 @@ from selenium.webdriver.common.by import By
 import lxml.html as html
 
 # 参考：
+# https://pypi.org/project/selenium/
+# https://sites.google.com/a/chromium.org/chromedriver/downloads
 # https://chromedriver.chromium.org/logging
 # https://stackoverflow.com/questions/47392423/python-selenium-devtools-listening-on-ws-127-0-0-1
 # sel = mySelenium()
 # sel.init('testLog.txt')
 # root = sel.get("https://www.yahoo.co.jp", 'Yahoo', 'out.html')
 # sel.stop()
-class kbSelenium:
-    def __init__(self):
+class KbSelenium:
+    def __init__(self, log='mylog.txt'):
         self.driver = None
+        self.init(log)
     def init(self, log="mylog.txt"):
         #1. seleniumの準備
-        DRIVERPATH="c:/users/takkawai/driver/chromedriver.exe"
+        DRIVERPATH="c:/Users/Takanori/python/driver/chromedriver"
+        #DRIVERPATH="chromedriver"
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         self.driver = webdriver.Chrome(DRIVERPATH, 
